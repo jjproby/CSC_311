@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 int lcg( int seed, int mod ) {
   return (2 * seed + 3) % mod;
@@ -19,7 +20,7 @@ int main( int argc, char *argv[] ) {
     mod = atoi(argv[2]);
   }
 
-  for (i = 0; i < 10; i++) {
+  for (i = 0; i < 100; i++) {
     num = (float)seed/mod;
     printf("%6.2f ", num);
     seed = lcg(seed, mod);
