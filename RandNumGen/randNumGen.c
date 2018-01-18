@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 
 /**
 * The formula used to generate the psudeorandom numbers.
@@ -13,7 +14,8 @@ int lcg( int seed, int mod ) {
 * Generates the random numbers and then checks to see if they appear random
 **/
 int main( int argc, char *argv[] ) {
-  int seed = 5; //starting number if not defined in command line
+  time_t seconds = time(NULL);
+  int seed = seconds%100; //starting number if not defined in command line
   int i;
   float num;
   int mod = 100; //the modulus
@@ -43,14 +45,14 @@ int main( int argc, char *argv[] ) {
   for (i = 0; i <= len; i++) {
     num = (float)seed/mod;
     sum = sum + num;
-    printf("%6.2f ", num);
+    printf("%6.2f\n ", num);
     seed = lcg(seed, mod);
   }
 
   average = (float)sum/len; //calculated the average
 
   printf("...\n");
-  printf("The sum of all the numbers is %6.2f\n", sum);
+  //printf("The sum of all the numbers is %6.2f\n", sum);
   printf("The average is %6.2f\n", average);
 
   //checks to see if the numbers are random or not.

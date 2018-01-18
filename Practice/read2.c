@@ -13,7 +13,7 @@ int main(int argc, char const *argv[]) {
   ssize_t nr;
   fd = open ("hello.txt", O_RDONLY, S_IWUSR | S_IRUSR | S_IWGRP | S_IROTH);
   printf("%d\n", fd);
-  nr = read( fd, &word, sizeof(unsigned long));
+  nr = read( fd, &word, 8);
   if (nr == -1) {
     printf("-1");
   }
