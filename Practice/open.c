@@ -5,7 +5,7 @@
 
 int main(int argc, char const *argv[]) {
   int fd;
-  fd = open ("crazy", O_WRONLY | O_CREAT | O_TRUNC, S_IWUSR | S_IRUSR | S_IWGRP | S_IROTH);
+  fd = open ("hello", O_WRONLY | O_CREAT | O_TRUNC, S_IWUSR | S_IRUSR | S_IWGRP | S_IROTH);
   if (fd == -1){
     printf("%d\n", fd);
   }
