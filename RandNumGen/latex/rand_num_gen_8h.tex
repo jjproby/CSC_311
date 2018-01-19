@@ -1,5 +1,12 @@
 \hypertarget{rand_num_gen_8h}{}\section{rand\+Num\+Gen.\+h File Reference}
 \label{rand_num_gen_8h}\index{rand\+Num\+Gen.\+h@{rand\+Num\+Gen.\+h}}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=163pt]{rand_num_gen_8h__dep__incl}
+\end{center}
+\end{figure}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -18,7 +25,14 @@ float \hyperlink{rand_num_gen_8h_ac217ddafac7debd6e67f07590ef4e033}{average} (in
 \item[{int}]{len}
 \end{DoxyParamCaption}
 )}\hypertarget{rand_num_gen_8h_ac217ddafac7debd6e67f07590ef4e033}{}\label{rand_num_gen_8h_ac217ddafac7debd6e67f07590ef4e033}
-Really, what do you think this does? It just divides something you idiot. It takes the sum of the generated numbers and divides by the amount of numbers generated. Idiot. \index{rand\+Num\+Gen.\+h@{rand\+Num\+Gen.\+h}!lcg@{lcg}}
+Really, what do you think this does? It just divides something you idiot. It takes the sum of the generated numbers and divides by the amount of numbers generated. Idiot. 
+\begin{DoxyParams}{Parameters}
+{\em sum} & The sum of all the generated numbers. \\
+\hline
+{\em len} & The amount of all generated numbers. \\
+\hline
+\end{DoxyParams}
+\index{rand\+Num\+Gen.\+h@{rand\+Num\+Gen.\+h}!lcg@{lcg}}
 \index{lcg@{lcg}!rand\+Num\+Gen.\+h@{rand\+Num\+Gen.\+h}}
 \subsubsection[{\texorpdfstring{lcg(int sum, int mod)}{lcg(int sum, int mod)}}]{\setlength{\rightskip}{0pt plus 5cm}int lcg (
 \begin{DoxyParamCaption}
@@ -27,3 +41,9 @@ Really, what do you think this does? It just divides something you idiot. It tak
 \end{DoxyParamCaption}
 )}\hypertarget{rand_num_gen_8h_ad6b35828af11c8f273bdec518bf11590}{}\label{rand_num_gen_8h_ad6b35828af11c8f273bdec518bf11590}
 The formula used to generate the psudeorandom numbers. 
+\begin{DoxyParams}{Parameters}
+{\em seed} & The start of generating the numbers \\
+\hline
+{\em mod} & The modulus in the formula \\
+\hline
+\end{DoxyParams}

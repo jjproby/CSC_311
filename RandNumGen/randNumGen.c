@@ -14,20 +14,21 @@
 
 /**
 * Generates the random numbers and then checks to see if they appear random
+* 
 **/
 int main( int argc, char *argv[] ) {
-  int fd; //file read into
-  ssize_t nr; //write into file
+  int fd; // fd file read into
+  ssize_t nr; // write into file
   char buf[50];
   fd = open("numbers.txt", O_RDWR | O_CREAT | O_TRUNC);
   time_t seconds = time(NULL);
-  int seed = seconds%100; //starting number if not defined in command line
+  int seed = seconds%100; // starting number if not defined in command line
   int i;
   float num;
-  int mod = 100; //the modulus
-  float aveNum; //the average to check if the numbers were random and evenly distributed
-  float sum = 0; //the sum of all random numbers generated
-  int len = 100; //the amount of numbers generated
+  int mod = 100; // the modulus
+  float aveNum; // the average to check if the numbers were random and evenly distributed
+  float sum = 0; // the sum of all random numbers generated
+  int len = 100; // the amount of numbers generated
 
 
   /**

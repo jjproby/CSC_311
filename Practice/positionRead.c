@@ -13,7 +13,7 @@ int main(){
   size_t count = 60;
   const char *buf = "HA! YOU'VE BEEN HACKED BY TOMMY AT THE VERIZON STORE!";
   ssize_t pw;
-  off_t pos = 30;
+  off_t pos = 365;
   fd = open("fun.txt", O_RDWR, S_IWUSR | S_IRUSR | S_IWGRP | S_IROTH);
   ret = truncate("fun.txt", pos);
   pw = pwrite(fd, buf, count, pos);

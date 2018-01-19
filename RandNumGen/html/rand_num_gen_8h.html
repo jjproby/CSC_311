@@ -25,7 +25,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RandNumGen
    </div>
-   <div id="projectbrief">Generates pseudorandom numbers from a formula and outputs them into a file</div>
+   <div id="projectbrief">Generates random numbers and puts them into another file</div>
   </td>
  </tr>
  </tbody>
@@ -86,7 +86,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">randNumGen.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="rand_num_gen_8h__dep__incl.png" border="0" usemap="#rand_num_gen_8hdep" alt=""/></div>
+<map name="rand_num_gen_8hdep" id="rand_num_gen_8hdep">
+<area shape="rect" id="node2" href="rand_num_gen_8c.html" title="randNumGen.c" alt="" coords="5,80,116,107"/>
+</map>
+</div>
+</div>
 <p><a href="rand_num_gen_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -120,7 +128,13 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Really, what do you think this does? It just divides something you idiot. It takes the sum of the generated numbers and divides by the amount of numbers generated. Idiot. </p>
+<p>Really, what do you think this does? It just divides something you idiot. It takes the sum of the generated numbers and divides by the amount of numbers generated. Idiot. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sum</td><td>The sum of all the generated numbers. </td></tr>
+    <tr><td class="paramname">len</td><td>The amount of all generated numbers. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -147,7 +161,13 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The formula used to generate the psudeorandom numbers. </p>
+<p>The formula used to generate the psudeorandom numbers. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seed</td><td>The start of generating the numbers </td></tr>
+    <tr><td class="paramname">mod</td><td>The modulus in the formula </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
