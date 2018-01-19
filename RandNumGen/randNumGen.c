@@ -1,40 +1,49 @@
+#define _XOPEN_SOURCE 500
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <string.h>
+#include "randNumGen.h"
 
-/**
-* The formula used to generate the psudeorandom numbers.
-**/
-int lcg( int seed, int mod ) {
-  return (2 * seed + 3) % mod;
-}
 
 /**
 * Generates the random numbers and then checks to see if they appear random
 **/
 int main( int argc, char *argv[] ) {
+  int fd; //file read into
+  ssize_t nr; //write into file
+  char buf[50];
+  fd = open("numbers.txt", O_RDWR | O_CREAT | O_TRUNC);
   time_t seconds = time(NULL);
   int seed = seconds%100; //starting number if not defined in command line
   int i;
   float num;
   int mod = 100; //the modulus
-  float average; //the average to check if the numbers were random and evenly distributed
+  float aveNum; //the average to check if the numbers were random and evenly distributed
   float sum = 0; //the sum of all random numbers generated
   int len = 100; //the amount of numbers generated
 
-  /**
-  * 1st argument is the seed of the random number generator
-  **/
-  if (argc > 1) {
-    seed = atoi(argv[1]);
-  }
 
   /**
-  * 2nd argumnet is the amount of numbers generated
+  * 1st argumnet is the amount of numbers generated
+  **/
+  if (argc > 1) {
+    len = atoi(argv[1]);
+  }
+  /**
+  * 2nd argument is the seed of the random number generator
   **/
   if (argc > 2) {
-    len = atoi(argv[2]);
+    seed = atoi(argv[2]);
+    if (seed >= mod) {
+      seed = seed%mod;
+    }
   }
 
   /**
@@ -46,17 +55,19 @@ int main( int argc, char *argv[] ) {
     num = (float)seed/mod;
     sum = sum + num;
     printf("%6.2f\n ", num);
+    int ret = snprintf(buf, sizeof(buf), "%6.2f\n", num); //transforms num into a char array
+    nr = write (fd, buf, 10); //writes the num into a new file
     seed = lcg(seed, mod);
   }
 
-  average = (float)sum/len; //calculated the average
+  aveNum = average(sum, len); //calculated the average
 
   printf("...\n");
   //printf("The sum of all the numbers is %6.2f\n", sum);
-  printf("The average is %6.2f\n", average);
+  printf("The average is %6.2f\n", aveNum);
 
   //checks to see if the numbers are random or not.
-  if (average <= 0.55 && average >= 0.45) {
+  if (aveNum <= 0.55 && aveNum >= 0.45) {
     printf("These numbers were random\n");
   }
   else {

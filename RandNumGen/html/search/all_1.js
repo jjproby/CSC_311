@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['main',['main',['../rand_num_gen_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'randNumGen.c']]]
+  ['average',['average',['../average_8c.html#ac217ddafac7debd6e67f07590ef4e033',1,'average(int sum, int len):&#160;average.c'],['../rand_num_gen_8h.html#ac217ddafac7debd6e67f07590ef4e033',1,'average(int sum, int len):&#160;average.c']]],
+  ['average_2ec',['average.c',['../average_8c.html',1,'']]]
 ];

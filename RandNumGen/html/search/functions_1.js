@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main',['main',['../rand_num_gen_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'randNumGen.c']]]
+  ['lcg',['lcg',['../lcg_8c.html#a961314425d451afd2d03cb36b0b74937',1,'lcg(int seed, int mod):&#160;lcg.c'],['../rand_num_gen_8h.html#ad6b35828af11c8f273bdec518bf11590',1,'lcg(int sum, int mod):&#160;lcg.c']]]
 ];
