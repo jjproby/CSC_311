@@ -10,28 +10,8 @@
 #include <ctype.h>
 #include <math.h>
 #include <time.h>
+#include "letterRead.h"
 
-// might want to declare some global variables
-
-// might want to define some other functions
-
-
-char randChar(double *percent) {
-  double sum = 0.0;
-  double randomNum = (double)rand() / (double)RAND_MAX;
-  //printf("%f\n", randomNum);
-  for (int i = 0; i < 26; i++) {
-    if (randomNum >= sum && randomNum <= sum + percent[i]) {
-      char c = 'a' + i;
-      return c;
-    }
-    else {
-      sum += percent[i];
-    }
-  }
-  //if (randomNum)
-
-}
 
 int main( int argc, char** argv ) {
   srand(time(NULL));
@@ -45,9 +25,8 @@ int main( int argc, char** argv ) {
   double randPercent[26] = {0};
   int *p;
 
-  // uncomment next line if opening a file
-  // (and replace "tale-of-two-cities.txt" with name of file
-  FILE * inputStream = fopen( "frankenstein.txt", "r" );
+
+  FILE * inputStream = fopen( "importance.txt", "r" );
 
   // replace stdin in next line with another input stream
   // if opening a file
@@ -55,9 +34,6 @@ int main( int argc, char** argv ) {
 
   while( numberOfCharactersRead > 0 ) {
 
-
-    // replace stdin in next line with another input stream
-    // if opening a file
     numberOfCharactersRead = getline(&line, &lengthOfBuffer, inputStream);
     if( numberOfCharactersRead == -1 ) {
       perror( "getline" );
@@ -72,11 +48,8 @@ int main( int argc, char** argv ) {
           chars++;
         }//if
       }//for
-      //printf( "%s\n", line );
     } // else
-
   } // while
-
   fclose( inputStream );
 
   free( line );
@@ -96,24 +69,7 @@ int main( int argc, char** argv ) {
 
   printf("Total number of characters: %d\n", chars);
 
-
-  /*for(int i = 0; i < 150; i++) {
-    printf("Random Char is: %c\n", randChar(percent));
-  }*/
-
-  for(int i = 0; i < chars; i++) {
-    char c = randChar(percent);
-    newLetters[c-'a']++;
-  }
-
-  for(int i = 0; i < 26; i++) {
-    randPercent[i] = ((double)newLetters[i]/(double)chars);
-  }
-
-  for(int i = 0; i < 26; i++) {
-    printf("Random Char %c = %d\n", 'a' + i, newLetters[i]);
-    printf("Random Percent for Char %c = %f\n", 'a' + i, randPercent[i]);
-  }
+  newRandChars(percent, chars);
 
   return 0;
 
