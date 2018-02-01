@@ -16,19 +16,49 @@ int main( int argc, char** argv ) {
   double percent[26] = {0};
   double randPercent[26] = {0};
   int *p;
+  char x[1024];
+  int num = 0;
 
-  FILE * inputStream = fopen( "frankenstein.txt", "r" );
+  FILE * inputStream = fopen( "bible.txt", "r" );
 
   numberOfCharactersRead = getline(&line, &lengthOfBuffer, inputStream);
 
-  while( numberOfCharactersRead > 0 ) {
+  while (fscanf(inputStream, " %s", x) == 1) {
+    //puts(x);
+    num++;
+  }
+
+  fclose( inputStream );
+
+  FILE * inputStream2 = fopen( "bible.txt", "r" );
+
+  char *y[num];
+
+  for (int i = 0; i < num; i++) {
+    if (fscanf(inputStream2, " %s", x) != 1) {
+      break;
+    }
+    //puts(x);
+    for (int j=0; x[j]; j++){
+      x[j] = tolower(x[j]);
+    }
+    y[i] = strdup(x);
+  }
+
+  for (int i = 0; i < num; i++) {
+    printf("%s\n", y[i]);
+  }
+
+  printf("Numebr of words: %d\n", num);
+
+
+/*  while( numberOfCharactersRead > 0 ) {
 
     numberOfCharactersRead = getline(&line, &lengthOfBuffer, inputStream);
     if( numberOfCharactersRead == -1 ) {
       perror( "getline" );
     } // if
     else {
-      char word[strlen(line)];
       for( int i = 0; i < strlen(line); i++) {
         char c = tolower(line[i]);
         //printf("%c", line[i]);
@@ -37,18 +67,14 @@ int main( int argc, char** argv ) {
           letters[c-'a']++;
           chars++;
         }//if
-        else {
-          printf("%s\n", word);
-          for (int j = 0; j < strlen(word); j++) {
-            word[j] = '\0';
-          }
-        }
       }//for
     } // else
-  } // while
-  fclose( inputStream );
+  } // while */
+  fclose( inputStream2 );
 
   free( line );
+
+
 
   return 0;
 
