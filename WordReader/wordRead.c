@@ -18,7 +18,7 @@ int main( int argc, char** argv ) {
   int *p;
   char x[1024];//string array
   int num = 0;
-  char *z[1024];
+
 
   FILE * inputStream = fopen( "frankenstein.txt", "r" );
 
@@ -35,8 +35,11 @@ int main( int argc, char** argv ) {
 
   char *y[num];//array of words
   int wordNumber[num];
+  char *singleWords[num];
 
   for (int i = 0; i < num; i++) {
+    char *z[num];
+    wordNumber[i] = 0;
     if (fscanf(inputStream2, " %s", x) != 1) {
       break;
     }
@@ -44,22 +47,36 @@ int main( int argc, char** argv ) {
     for (int j=0; x[j]; j++){
       x[j] = tolower(x[j]);
     }
+    z[i] = strdup(x);
+    /*for (int k = 0; k < strlen(y[i]); k++) {
+      if (strcmp(y[k], z[i]) == 0) {
+        wordNumber[k]++;
+        continue;
+      }
+    }*/
     y[i] = strdup(x);
+    wordNumber[i]++;
+    printf("%s\n", y[i]);
   }
 
   fclose( inputStream2 );
+
+  for (int i = 0; i < num; i++) {
+    for (int j = 0; j < i; j++) {
+      if (strcmp())
+    }
+  }
 
   /*for (int i = 0; i < num; i++) {
     printf("%s\n", y[i]);
   }*/
 
-  int read = 0;
-  for (int i = 0; i < num; i++) {
+  /*for (int i = 0; i < num; i++) {
     /*for (int j = 0; j < i; j++) {
       if (strcmp(y[j], y[i]) == 0) {
         continue;
       }//if
-    }//for*/
+    }//for
     FILE * inputStream3 = fopen( "frankenstein.txt", "r" );
     for (int j = 0; j < num; j++) {
       if (fscanf(inputStream, " %s", x) != 1) {
@@ -76,38 +93,18 @@ int main( int argc, char** argv ) {
     }//for
     fclose( inputStream3 );
     read++;
-  }//for
+  }//for*/
 
   for (int i = 0; i < num; i++) {
-    printf("%s : %d ", y[i], wordNumber[i]);
+    printf("%s : %d \n", y[i], wordNumber[i]);
   }
 
 
   printf("Numebr of words: %d\n", num);
-  printf("Numebr of times read: %d\n", read);
 
 
-/*  while( numberOfCharactersRead > 0 ) {
 
-    numberOfCharactersRead = getline(&line, &lengthOfBuffer, inputStream);
-    if( numberOfCharactersRead == -1 ) {
-      perror( "getline" );
-    } // if
-    else {
-      for( int i = 0; i < strlen(line); i++) {
-        char c = tolower(line[i]);
-        //printf("%c", line[i]);
-        if( 'a' <= c && c <='z') {
-          word[i] = c;
-          letters[c-'a']++;
-          chars++;
-        }//if
-      }//for
-    } // else
-  } // while */
-
-
-  //free( line );
+  free( line );
 
 
 
