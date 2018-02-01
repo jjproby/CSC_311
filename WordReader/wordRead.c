@@ -34,7 +34,7 @@ int main( int argc, char** argv ) {
   FILE * inputStream2 = fopen( "frankenstein.txt", "r" );
 
   char *y[num];//array of words
-  char *wordNumber[num];
+  int wordNumber[num];
 
   for (int i = 0; i < num; i++) {
     if (fscanf(inputStream2, " %s", x) != 1) {
@@ -53,28 +53,38 @@ int main( int argc, char** argv ) {
     printf("%s\n", y[i]);
   }*/
 
+  int read = 0;
   for (int i = 0; i < num; i++) {
-    FILE * inputStream3 = fopen( "frankenstein.txt", "r" );
     /*for (int j = 0; j < i; j++) {
       if (strcmp(y[j], y[i]) == 0) {
         continue;
-      }
-    }*/
-    if (fscanf(inputStream3, " %s", x) != 1) {
-      break;
-    }
-    puts(x);
-    /*for (int k=0; x[k]; k++){
-      x[k] = tolower(x[k]);
-    }
-    z[i] = strdup(x);
-    if (strcmp(y[i], z[i]) == 0) {
-      wordNumber[i]++;
-    }*/
+      }//if
+    }//for*/
+    FILE * inputStream3 = fopen( "frankenstein.txt", "r" );
+    for (int j = 0; j < num; j++) {
+      if (fscanf(inputStream, " %s", x) != 1) {
+        break;
+      }//if
+      //puts(x);
+      for (int k=0; x[k]; k++){
+        x[k] = tolower(x[k]);
+      }//for
+      z[i] = strdup(x);
+      if (strcmp(y[i], z[i]) == 0) {
+        wordNumber[i]++;
+      }//if
+    }//for
     fclose( inputStream3 );
+    read++;
+  }//for
+
+  for (int i = 0; i < num; i++) {
+    printf("%s : %d ", y[i], wordNumber[i]);
   }
 
+
   printf("Numebr of words: %d\n", num);
+  printf("Numebr of times read: %d\n", read);
 
 
 /*  while( numberOfCharactersRead > 0 ) {
