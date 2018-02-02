@@ -22,7 +22,7 @@ int main( int argc, char** argv ) {
 
   FILE * inputStream = fopen( "frankenstein.txt", "r" );
 
-  numberOfCharactersRead = getline(&line, &lengthOfBuffer, inputStream);
+  //numberOfCharactersRead = getline(&line, &lengthOfBuffer, inputStream);
 
   while (fscanf(inputStream, " %s", x) == 1) {
     //puts(x);
@@ -63,7 +63,12 @@ int main( int argc, char** argv ) {
 
   for (int i = 0; i < num; i++) {
     for (int j = 0; j < i; j++) {
-      if (strcmp())
+      if (strcmp(y[j], y[i]) == 0) {
+        wordNumber[j]++;
+      }
+      else {
+        singleWords[i] = strdup(y[i]);
+      }
     }
   }
 
