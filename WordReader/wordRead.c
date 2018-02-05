@@ -55,6 +55,7 @@ int main( int argc, char** argv ) {
   }
 
   int wordNumber[uniqueWords];
+  double percent[uniqueWords];
 
   for (int i = 0; i < uniqueWords; i++){
     wordNumber[i] = 0;
@@ -66,8 +67,11 @@ int main( int argc, char** argv ) {
   }
 
   for (int i = 0; i < uniqueWords; i++) {
-    printf("%s : %d \n", singleWords[i], wordNumber[i]);
+    percent[i] = (double)wordNumber[i]/(double)num;
+    printf("%s : %d   %f\n", singleWords[i], wordNumber[i], percent[i]);
   }
+
+
   printf("Unique words: %d\n", uniqueWords);
 
 
