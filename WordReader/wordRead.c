@@ -5,7 +5,21 @@
 #include <math.h>
 #include <time.h>
 
+int randWord(double *percent, int numWords ){
+  double sum = 0.0;
+  double randomWord = (double)rand() / (double)RAND_MAX;
+  for (int i = 0; i < numWords; i++) {
+    if (randomWord >= sum && randomWord <= sum + percent[i]) {
+      return i;
+    }
+    else {
+      sum += percent[i];
+    }
+  }
+}
+
 int main( int argc, char** argv ) {
+  srand(time(NULL));
   char *line = NULL;
   char x[1024];//string array
   int num = 0;
@@ -68,7 +82,7 @@ int main( int argc, char** argv ) {
 
   for (int i = 0; i < uniqueWords; i++) {
     percent[i] = (double)wordNumber[i]/(double)num;
-    printf("%s : %d   %f\n", singleWords[i], wordNumber[i], percent[i]);
+    //printf("%s : %d   %f\n", singleWords[i], wordNumber[i], percent[i]);
   }
 
 
@@ -76,6 +90,19 @@ int main( int argc, char** argv ) {
 
 
   printf("Numebr of words: %d\n", num);
+
+  /*for (int i = 0; i < uniqueWords; i++) {
+    printf("%s\n", singleWords[i]);
+  }*/
+
+  for (int i = 0; i < uniqueWords; i++) {
+    int newWord = randWord(percent, uniqueWords);
+    //printf("%d\n", newWord);
+    printf("%s ", singleWords[newWord]);
+  }
+
+
+  printf("\n");
 
 
 
