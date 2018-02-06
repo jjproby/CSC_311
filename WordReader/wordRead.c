@@ -24,7 +24,7 @@ int main( int argc, char** argv ) {
   char x[1024];//string array
   int num = 0;
 
-  FILE * inputStream = fopen( "frankenstein.txt", "r" );
+  FILE * inputStream = fopen( "bee.txt", "r" );
 
   while (fscanf(inputStream, " %s", x) == 1) {
     //puts(x);
@@ -35,7 +35,7 @@ int main( int argc, char** argv ) {
 
   fclose( inputStream );
 
-  FILE * inputStream2 = fopen( "frankenstein.txt", "r" );
+  FILE * inputStream2 = fopen( "bee.txt", "r" );
 
   char *y[num];//array of words
   char *singleWords[num];
@@ -82,18 +82,12 @@ int main( int argc, char** argv ) {
 
   for (int i = 0; i < uniqueWords; i++) {
     percent[i] = (double)wordNumber[i]/(double)num;
-    //printf("%s : %d   %f\n", singleWords[i], wordNumber[i], percent[i]);
+    printf("%s : %d   %f\n", singleWords[i], wordNumber[i], percent[i]);
   }
-
 
   printf("Unique words: %d\n", uniqueWords);
 
-
   printf("Numebr of words: %d\n", num);
-
-  /*for (int i = 0; i < uniqueWords; i++) {
-    printf("%s\n", singleWords[i]);
-  }*/
 
   for (int i = 0; i < uniqueWords; i++) {
     int newWord = randWord(percent, uniqueWords);
